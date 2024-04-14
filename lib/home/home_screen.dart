@@ -33,12 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeCubit.get(context).bookLinkCon.clear();
         }
       },
+
       builder: (context , state ){
         return SafeArea(child: Scaffold(
           appBar: AppBar(),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
+            child: ListView(
               children: [
                 Center(
                   child: Stack(
@@ -200,6 +201,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 18,
                 ),
+                CustomTextFormField(
+                  keyboardType : TextInputType.number,
+                  controller: HomeCubit.get(context).bookPagesNumberCon,
+                  hintText: "Book Pages Number",
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                CustomTextFormField(
+                  keyboardType : TextInputType.text,
+                  controller: HomeCubit.get(context).bookResourceCon,
+                  hintText: "Book Resource",
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
                 ConditionalBuilder(
                   condition: state is! AddBookLoadingState,
                   fallback: (context) {
@@ -228,6 +245,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           bookType: HomeCubit.get(context).bookType.toString(),
                           bookId:  HomeCubit.get(context).uuidBook.toString(),
                             bookUrl :  HomeCubit.get(context).bookLinkCon.text.toString(),
+                          bookResource :  HomeCubit.get(context).bookResourceCon.text.toString(),
+                          bookPagesNumber :  HomeCubit.get(context).bookPagesNumberCon.text.toString(),
                         );
                         // if (formKey2.currentState!.validate()) {
                         //   HomeCubit.get(context).addNewBook(
