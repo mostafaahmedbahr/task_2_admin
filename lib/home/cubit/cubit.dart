@@ -65,6 +65,7 @@ class HomeCubit extends Cubit<HomeStates> {
 
 
 
+  String newId = "";
   addNewBook({
       String? bookImage,
     required String bookName,
@@ -97,6 +98,7 @@ class HomeCubit extends Cubit<HomeStates> {
       debugPrint("Add book is done");
       debugPrint("50"*10);
       debugPrint(value.id);
+      newId = value.id;
       emit(AddBookSuccessState());
     }).catchError((error)
     {

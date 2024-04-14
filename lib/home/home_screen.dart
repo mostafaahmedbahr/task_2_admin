@@ -253,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           bookName:  HomeCubit.get(context).bookNameCon.text.toString(),
                           bookAuthorName: HomeCubit.get(context).bookAuthorNameCon.text.toString(),
                           bookType: HomeCubit.get(context).bookType.toString(),
-                          bookId:  HomeCubit.get(context).uuidBook.toString(),
+                          bookId:  HomeCubit.get(context).newId,
                             bookUrl :  HomeCubit.get(context).bookLinkCon.text.toString(),
                           bookResource :  HomeCubit.get(context).bookResourceCon.text.toString(),
                           bookPagesNumber :  HomeCubit.get(context).bookPagesNumberCon.text.toString(),
