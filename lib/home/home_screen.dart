@@ -20,19 +20,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    var formKey2 = GlobalKey<FormState>();
     return BlocConsumer<HomeCubit , HomeStates>(
       listener: (context , state ){
         if(state is AddBookSuccessState){
           NewToast.showNewSuccessToast(msg: "done", context: context);
           HomeCubit.get(context).file =null;
           HomeCubit.get(context).bookType =null;
-          HomeCubit.get(context).bookPriceCon.clear();
-          HomeCubit.get(context).bookAuthorNameCon.clear();
           HomeCubit.get(context).bookNameCon.clear();
-          HomeCubit.get(context).bookLinkCon.clear();
-          HomeCubit.get(context).bookDesCon.clear();
+          HomeCubit.get(context).bookAuthorNameCon.clear();
           HomeCubit.get(context).bookRateCon.clear();
+          HomeCubit.get(context).bookDesCon.clear();
+          HomeCubit.get(context).bookLinkCon.clear();
           HomeCubit.get(context).bookPagesNumberCon.clear();
           HomeCubit.get(context).bookResourceCon.clear();
         }
@@ -192,14 +190,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 CustomTextFormField(
                   keyboardType : TextInputType.number,
-                  controller: HomeCubit.get(context).bookPriceCon,
-                  hintText: "Book Price",
-                ),
-                const SizedBox(
-                  height: 18,
-                ),
-                CustomTextFormField(
-                  keyboardType : TextInputType.number,
                   controller: HomeCubit.get(context).bookRateCon,
                   hintText: "Book Rate",
                 ),
@@ -262,7 +252,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           bookImage: HomeCubit.get(context).imageUrl.toString(),
                           bookName:  HomeCubit.get(context).bookNameCon.text.toString(),
                           bookAuthorName: HomeCubit.get(context).bookAuthorNameCon.text.toString(),
-                          bookPrice:  HomeCubit.get(context).bookPriceCon.text.toString(),
                           bookType: HomeCubit.get(context).bookType.toString(),
                           bookId:  HomeCubit.get(context).uuidBook.toString(),
                             bookUrl :  HomeCubit.get(context).bookLinkCon.text.toString(),
