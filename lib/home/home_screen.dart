@@ -33,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeCubit.get(context).bookLinkCon.clear();
         }
       },
+      //
       builder: (context , state ){
         return SafeArea(child: Scaffold(
           appBar: AppBar(),
