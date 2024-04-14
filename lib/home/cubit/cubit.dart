@@ -59,6 +59,9 @@ class HomeCubit extends Cubit<HomeStates> {
   var bookLinkCon = TextEditingController();
   var bookPagesNumberCon = TextEditingController();
   var bookResourceCon = TextEditingController();
+  var bookRateCon = TextEditingController();
+  var bookDesCon = TextEditingController();
+
 
 
 
@@ -72,6 +75,8 @@ class HomeCubit extends Cubit<HomeStates> {
     required String bookUrl,
     required String bookPagesNumber,
     required String bookResource,
+    required String bookRate,
+    required String bookDes,
   })
   {
     emit(AddBookLoadingState());
@@ -86,6 +91,8 @@ class HomeCubit extends Cubit<HomeStates> {
           "bookUrl" : bookUrl,
           "bookResource" : bookResource,
           "bookPagesNumber" : bookPagesNumber,
+          "bookRate" : bookRate,
+          "des" : bookDes,
         }
     ).then((value)
     {

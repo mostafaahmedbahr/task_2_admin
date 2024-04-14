@@ -31,6 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeCubit.get(context).bookAuthorNameCon.clear();
           HomeCubit.get(context).bookNameCon.clear();
           HomeCubit.get(context).bookLinkCon.clear();
+          HomeCubit.get(context).bookDesCon.clear();
+          HomeCubit.get(context).bookRateCon.clear();
+          HomeCubit.get(context).bookPagesNumberCon.clear();
+          HomeCubit.get(context).bookResourceCon.clear();
         }
       },
 
@@ -177,9 +181,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 18,
                 ),
+
                 CustomTextFormField(
                   controller: HomeCubit.get(context).bookAuthorNameCon,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.text,
                   hintText: "Author Name",
                 ),
                 const SizedBox(
@@ -189,6 +194,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   keyboardType : TextInputType.number,
                   controller: HomeCubit.get(context).bookPriceCon,
                   hintText: "Book Price",
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                CustomTextFormField(
+                  keyboardType : TextInputType.number,
+                  controller: HomeCubit.get(context).bookRateCon,
+                  hintText: "Book Rate",
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                CustomTextFormField(
+                  keyboardType : TextInputType.text,
+                  controller: HomeCubit.get(context).bookDesCon,
+                  hintText: "Book Description",
                 ),
                 const SizedBox(
                   height: 18,
@@ -247,6 +268,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             bookUrl :  HomeCubit.get(context).bookLinkCon.text.toString(),
                           bookResource :  HomeCubit.get(context).bookResourceCon.text.toString(),
                           bookPagesNumber :  HomeCubit.get(context).bookPagesNumberCon.text.toString(),
+                          bookDes :  HomeCubit.get(context).bookDesCon.text.toString(),
+                          bookRate :  HomeCubit.get(context).bookRateCon.text.toString(),
                         );
                         // if (formKey2.currentState!.validate()) {
                         //   HomeCubit.get(context).addNewBook(
