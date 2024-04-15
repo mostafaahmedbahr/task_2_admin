@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_2_admin/home/cubit/cubit.dart';
 import 'package:task_2_admin/home/cubit/states.dart';
+import 'package:uuid/uuid.dart';
 
 import 'custom_Loading.dart';
 import 'custom_button.dart';
@@ -200,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   keyboardType : TextInputType.text,
                   controller: HomeCubit.get(context).bookDesCon,
                   hintText: "Book Description",
+                  maxLines: 3,
                 ),
                 const SizedBox(
                   height: 18,
@@ -248,12 +250,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       onPressed: () {
+
                         HomeCubit.get(context).addNewBook(
                           bookImage: HomeCubit.get(context).imageUrl.toString(),
                           bookName:  HomeCubit.get(context).bookNameCon.text.toString(),
                           bookAuthorName: HomeCubit.get(context).bookAuthorNameCon.text.toString(),
                           bookType: HomeCubit.get(context).bookType.toString(),
-                          bookId:  HomeCubit.get(context).newId,
+                          bookId:  const Uuid().v4().toString(),
                             bookUrl :  HomeCubit.get(context).bookLinkCon.text.toString(),
                           bookResource :  HomeCubit.get(context).bookResourceCon.text.toString(),
                           bookPagesNumber :  HomeCubit.get(context).bookPagesNumberCon.text.toString(),
